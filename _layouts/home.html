@@ -9,7 +9,6 @@ layout: default
 
   {{ content }}
   
-
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">
@@ -40,8 +39,8 @@ layout: default
     var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-      center: [-74.50, 40], // starting position [lng, lat]
-      zoom: 9 // starting zoom
+      center: [10, 5], // starting position [lng, lat]
+      zoom: 1 // starting zoom
     });
   </script>
 </div>

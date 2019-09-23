@@ -1,19 +1,17 @@
----
----
-
-body {
-  margin: 0;
-  padding: 0;
-  }
-
 .page-content {
   position: relative;
+  .wrapper {
+    max-width: none;
+  }
 }
 
 #map {
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
-  width: 100%;
+  margin: auto;
+  width: 60%; 
 }
 
