@@ -8,7 +8,31 @@ layout: default
   {%- endif -%}
 
   {{ content }}
-  
+  <p id="date"></p>
+  <div id="currentTime"></div>
+  <script>
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('currentTime').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">
@@ -33,6 +57,7 @@ layout: default
       </a>
     </p>
   {%- endif -%}
+
   <div id='map'></div>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiamlubGluOTE3IiwiYSI6IjM5ZTM2ZWQxNGI2MTg4MzE4NTFlM2NiMDA0ZGQ4ZTI3In0.WEoWmAoZdzrNizzaKoaK_A';
